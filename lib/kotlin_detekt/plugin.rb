@@ -168,7 +168,7 @@ module Danger
           filename = location.get("name").gsub(dir, "")
           next unless !filtering || (target_files.include? filename)
           line = (r.get("line") || "0").to_i
-          send(level == "warning" ? "warn" : "fail", r.get("message"), file: filename, line: line)
+          send(level == "warning" ? "error" : "fail", r.get("message"), file: filename, line: line)
         end
       end
     end
